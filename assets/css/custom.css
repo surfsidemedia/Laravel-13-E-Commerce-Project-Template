@@ -1,0 +1,99 @@
+.swiper-pagination-bullet-active {
+    background-color: #3b82f6;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.account-tab-btn.active {
+    @apply bg-primary text-white;
+}
+
+.account-tab-btn {
+    @apply hover:bg-gray-100 hover:text-primary;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Custom Radio Button Styling */
+input[type="radio"]:checked+label span {
+    border-color: #3b82f6;
+    background-color: #3b82f6;
+    box-shadow: inset 0 0 0 3px white;
+}
+
+input[type="radio"]+label span {
+    transition: background .2s, transform .2s;
+}
+
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #1f2937;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tab-btn.active {
+    color: #3b82f6;
+    border-bottom: 2px solid #3b82f6;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
