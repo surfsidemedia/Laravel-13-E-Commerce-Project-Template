@@ -38,11 +38,16 @@
                 </a>
 
                 <div class="relative group">
-                    <button class="text-2xl hover:text-primary"><i class="fa-regular fa-user"></i></button>
-                    <ul class="absolute right-0 mt-2 w-40 bg-white border shadow-lg py-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <li><a href="my-account.php" class="block px-4 py-2 hover:bg-gray-100 text-sm">My Account</a></li>
-                        <li><a href="checkout.php" class="block px-4 py-2 hover:bg-gray-100 text-sm">Checkout</a></li>
-                        <li><a href="login.php" class="block px-4 py-2 hover:bg-gray-100 text-sm">Sign In</a></li>
+                    <button class="text-2xl hover:text-primary">
+                        <i class="fa-regular fa-user"></i>                           
+                        <!-- <span class="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full font-bold uppercase text-lg shadow-sm">
+                            <i class="fa-regular fa-user"></i>
+                        </span> -->
+                    </button>
+                    <ul class="absolute right-0 mt-2 w-40 bg-white border shadow-lg py-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">                            
+                        <li><a href='login.php' class="block px-4 py-2 hover:bg-gray-100 text-sm">Sign In</a></li>  
+                        <li><a href='My-Account.php' class="block px-4 py-2 hover:bg-gray-100 text-sm">My Account</a></li>
+                        <li><a href="login.php" class="block px-4 py-2 hover:bg-gray-100 text-sm">Sign Out</a></li>                            
                     </ul>
                 </div>
             </div>
