@@ -18,14 +18,6 @@
     mobileMenuBtn.addEventListener('click', toggleSidebar);
     overlay.addEventListener('click', toggleSidebar);
 
-    // Delete Simulation
-    function deleteCategory(btn) {
-        if (confirm('Are you sure you want to delete this category?')) {
-            const row = btn.closest('tr');
-            row.remove();
-        }
-    }
-
     document.addEventListener("DOMContentLoaded", function() {
         // 1. Get the current URL filename
         const currentLocation = window.location.pathname.split("/").pop();

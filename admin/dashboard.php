@@ -118,8 +118,7 @@
                                         <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-semibold">Completed</span>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <button class="text-gray-400 hover:text-primary transition"><i class="fa-solid fa-eye"></i></button>
-                                        <button class="text-gray-400 hover:text-red-500 transition ml-2"><i class="fa-solid fa-trash"></i></button>
+                                        <button class="text-gray-400 hover:text-primary transition"><i class="fa-solid fa-eye"></i></button>                                        
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-gray-50 transition">
@@ -137,8 +136,7 @@
                                         <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-semibold">Pending</span>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <button class="text-gray-400 hover:text-primary transition"><i class="fa-solid fa-eye"></i></button>
-                                        <button class="text-gray-400 hover:text-red-500 transition ml-2"><i class="fa-solid fa-trash"></i></button>
+                                        <button class="text-gray-400 hover:text-primary transition"><i class="fa-solid fa-eye"></i></button>                                        
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-gray-50 transition">
@@ -156,8 +154,7 @@
                                         <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-semibold">Processing</span>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <button class="text-gray-400 hover:text-primary transition"><i class="fa-solid fa-eye"></i></button>
-                                        <button class="text-gray-400 hover:text-red-500 transition ml-2"><i class="fa-solid fa-trash"></i></button>
+                                        <button class="text-gray-400 hover:text-primary transition"><i class="fa-solid fa-eye"></i></button>                                        
                                     </td>
                                 </tr>
                             </tbody>

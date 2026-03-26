@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php include 'includes/head.php'; ?>
 </head>
@@ -7,17 +8,17 @@
 <body class="bg-gray-100 font-sans antialiased">
 
     <div class="flex h-screen overflow-hidden">
-        
+
         <?php include 'includes/sidebar.php'; ?>
 
         <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
-            
+
             <?php include 'includes/header.php'; ?>
 
             <!-- Main Content Start -->
 
             <main class="flex-1 overflow-y-auto p-6 bg-gray-100">
-                
+
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                     <div>
                         <h1 class="text-2xl font-bold text-gray-800">Brands</h1>
@@ -37,7 +38,7 @@
                                 </span>
                                 <input type="text" class="w-full pl-10 pr-4 py-2 border rounded-lg text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Search brand...">
                             </div>
-                            
+
                             <select class="w-full md:w-40 border px-3 py-2 rounded-lg text-sm focus:outline-none focus:border-primary bg-white text-gray-600">
                                 <option value="">All Status</option>
                                 <option value="active">Active</option>
@@ -84,94 +85,7 @@
                                             <button class="w-8 h-8 rounded-full hover:bg-gray-100 text-blue-500 transition flex items-center justify-center" title="Edit">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </button>
-                                            <button class="w-8 h-8 rounded-full hover:bg-gray-100 text-red-500 transition flex items-center justify-center" onclick="deleteBrand(this)" title="Delete">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 text-sm text-gray-500">#102</td>
-                                    <td class="px-6 py-4">
-                                        <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center border">
-                                            <img src="uploads/brands/2.png" class="max-w-[30px] max-h-[30px] object-contain" alt="Brand Logo" onerror="this.src='https://placehold.co/40x40?text=A'">
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="font-semibold text-gray-800">Apple</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-600">apple</td>
-                                    <td class="px-6 py-4">
-                                        <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs font-semibold">85 Items</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="bg-green-100 text-green-700 px-2.5 py-1 rounded-full text-xs font-semibold">Active</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <div class="flex items-center justify-end gap-2">
-                                            <button class="w-8 h-8 rounded-full hover:bg-gray-100 text-blue-500 transition flex items-center justify-center" title="Edit">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="w-8 h-8 rounded-full hover:bg-gray-100 text-red-500 transition flex items-center justify-center" onclick="deleteBrand(this)" title="Delete">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 text-sm text-gray-500">#103</td>
-                                    <td class="px-6 py-4">
-                                        <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center border">
-                                            <img src="uploads/brands/3.png" class="max-w-[30px] max-h-[30px] object-contain" alt="Brand Logo" onerror="this.src='https://placehold.co/40x40?text=N'">
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="font-semibold text-gray-800">Nike</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-600">nike</td>
-                                    <td class="px-6 py-4">
-                                        <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs font-semibold">340 Items</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="bg-green-100 text-green-700 px-2.5 py-1 rounded-full text-xs font-semibold">Active</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <div class="flex items-center justify-end gap-2">
-                                            <a href="brand-edit.php" class="w-8 h-8 rounded-full hover:bg-gray-100 text-blue-500 transition flex items-center justify-center" title="Edit">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </a>
-                                            <button class="w-8 h-8 rounded-full hover:bg-gray-100 text-red-500 transition flex items-center justify-center" onclick="deleteBrand(this)" title="Delete">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 text-sm text-gray-500">#104</td>
-                                    <td class="px-6 py-4">
-                                        <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center border">
-                                            <img src="uploads/brands/4.png" class="max-w-[30px] max-h-[30px] object-contain" alt="Brand Logo" onerror="this.src='https://placehold.co/40x40?text=A'">
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="font-semibold text-gray-800">Adidas</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-600">adidas</td>
-                                    <td class="px-6 py-4">
-                                        <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs font-semibold">210 Items</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full text-xs font-semibold">Inactive</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <div class="flex items-center justify-end gap-2">
-                                            <a href="brand-edit.php" class="w-8 h-8 rounded-full hover:bg-gray-100 text-blue-500 transition flex items-center justify-center" title="Edit">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </a>
-                                            <button class="w-8 h-8 rounded-full hover:bg-gray-100 text-red-500 transition flex items-center justify-center" onclick="deleteBrand(this)" title="Delete">
+                                            <button class="w-8 h-8 rounded-full hover:bg-gray-100 text-red-500 transition flex items-center justify-center" onclick="deleteBrand(this, 'Samsung', 101)" title="Delete">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
                                         </div>
@@ -183,7 +97,7 @@
 
                     <div class="px-6 py-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                         <span class="text-sm text-gray-500">Showing <span class="font-bold text-gray-700">1-4</span> of <span class="font-bold text-gray-700">24</span> brands</span>
-                        
+
                         <div class="flex gap-2">
                             <button class="px-3 py-1 border rounded hover:bg-gray-50 text-gray-600 disabled:opacity-50 text-sm" disabled>Previous</button>
                             <button class="px-3 py-1 border rounded bg-primary text-white text-sm">1</button>
@@ -200,6 +114,93 @@
         </div>
     </div>
 
+    <div id="deleteModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity backdrop-blur-sm"></div>
+
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md">
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                <i class="fa-solid fa-triangle-exclamation text-red-600"></i>
+                            </div>
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <h3 class="text-lg font-semibold leading-6 text-gray-900" id="modal-title">Delete Brand</h3>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-500">Are you sure you want to delete <strong id="delete-brand-name" class="text-gray-800">this brand</strong>? All of its data will be permanently removed. This action cannot be undone.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" id="confirmDeleteBtn" class="inline-flex w-full justify-center rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto transition">Delete</button>
+                        <button type="button" id="cancelDeleteBtn" class="mt-3 inline-flex w-full justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto transition">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <?php include 'includes/script.php'; ?>
+    <script>
+        // Modal Elements
+        const deleteModal = document.getElementById('deleteModal');
+        const confirmBtn = document.getElementById('confirmDeleteBtn');
+        const cancelBtn = document.getElementById('cancelDeleteBtn');
+        const brandNameSpan = document.getElementById('delete-brand-name');
+
+        // Variables to hold the state of what we are deleting
+        let rowToDelete = null;
+        let brandIdToDelete = null;
+
+        // Function triggered when the trash icon is clicked
+        function deleteBrand(buttonElement, brandName, brandId) {
+            // Save the row so we can remove it later
+            rowToDelete = buttonElement.closest('tr');
+            brandIdToDelete = brandId;
+
+            // Update the modal text dynamically
+            brandNameSpan.textContent = brandName || "this brand";
+
+            // Show the modal by removing the 'hidden' class
+            deleteModal.classList.remove('hidden');
+        }
+
+        // Close Modal Function
+        function closeModal() {
+            deleteModal.classList.add('hidden');
+            rowToDelete = null;
+            brandIdToDelete = null;
+        }
+
+        // Handle Cancel Button
+        cancelBtn.addEventListener('click', closeModal);
+
+        // Handle clicking outside the modal to close it
+        deleteModal.addEventListener('click', function(event) {
+            // If the user clicks on the backdrop (not the panel), close it
+            if (event.target === this || event.target.classList.contains('bg-opacity-75')) {
+                closeModal();
+            }
+        });
+
+        // Handle Confirm Delete Button
+        confirmBtn.addEventListener('click', function() {
+            if (rowToDelete) {
+                // For the UI demo, we will just remove the row from the table smoothly
+                rowToDelete.style.transition = "all 0.3s ease";
+                rowToDelete.style.opacity = "0";
+
+                setTimeout(() => {
+                    rowToDelete.remove();
+                    closeModal(); // Hide modal after deleting
+                }, 300);
+            }
+        });
+    </script>
+
 </body>
+
 </html>
