@@ -46,7 +46,7 @@
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                                        <textarea id="description" name="description" rows="6" placeholder="Detailed description..." class="w-full border px-4 py-2 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm"></textarea>
+                                        <textarea id="description" name="description" rows="18" placeholder="Detailed description..." class="w-full border px-4 py-2 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -124,16 +124,34 @@
                                 </div>
                             </div>
 
+
                             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                                <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">Product Images</h3>
+                                <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">Product Image (Main)</h3>
+                                
+                                <label for="product-image" id="single-upload-label" class="block border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:bg-gray-50 transition cursor-pointer">
+                                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm text-gray-500">Click to upload main image</p>
+                                    <input type="file" id="product-image" name="image" class="hidden" accept="image/png, image/jpeg, image/jpg, image/webp">
+                                </label>
+
+                                <div id="single-preview-container" class="hidden mt-4 relative h-48 bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden group shadow-sm">
+                                    <img id="single-image-preview" src="" class="max-w-full max-h-full object-contain">
+                                    <button type="button" id="remove-single-image" class="absolute top-2 right-2 bg-red-500 text-white rounded-md w-7 h-7 flex items-center justify-center text-sm shadow-md hover:bg-red-600 transition focus:outline-none">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">Product Gallery Images</h3>
                                 
                                 <label for="product-images" class="block border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:bg-gray-50 transition cursor-pointer">
                                     <i class="fa-solid fa-cloud-arrow-up text-3xl text-gray-400 mb-2"></i>
-                                    <p class="text-sm text-gray-500">Click to upload multiple images</p>
-                                    <input type="file" id="product-images" name="images" class="hidden" multiple accept="image/png, image/jpeg, image/jpg, image/webp">
+                                    <p class="text-sm text-gray-500">Click to upload multiple gallery images</p>
+                                    <input type="file" id="product-images" name="images[]" class="hidden" multiple accept="image/png, image/jpeg, image/jpg, image/webp">
                                 </label>
 
-                                <div id="image-preview-container" class="grid grid-cols-3 gap-3 mt-4">
+                                <div id="gallery-preview-container" class="grid grid-cols-3 gap-3 mt-4">
                                     </div>
                             </div>
                         </div>
@@ -171,78 +189,104 @@
             }
 
             // ==========================================
-            // 2. MULTIPLE IMAGE UPLOAD & PREVIEW
+            // 2. SINGLE IMAGE UPLOAD (Main Product Image)
             // ==========================================
-            const imageInput = document.getElementById('product-images');
-            const previewContainer = document.getElementById('image-preview-container');
-            
-            // Array to store our selected files in memory
-            let selectedFiles = [];
+            const singleImageInput = document.getElementById('product-image');
+            const singleUploadLabel = document.getElementById('single-upload-label');
+            const singlePreviewContainer = document.getElementById('single-preview-container');
+            const singleImagePreview = document.getElementById('single-image-preview');
+            const removeSingleBtn = document.getElementById('remove-single-image');
 
-            if (imageInput && previewContainer) {
-                imageInput.addEventListener('change', function(event) {
+            if (singleImageInput) {
+                singleImageInput.addEventListener('change', function(event) {
+                    const file = event.target.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        singleImagePreview.src = URL.createObjectURL(file);
+                        singleUploadLabel.classList.add('hidden');
+                        singlePreviewContainer.classList.remove('hidden');
+                        singlePreviewContainer.classList.add('flex'); // Keep flex layout active
+                    } else {
+                        resetSingleImage();
+                    }
+                });
+            }
+
+            if (removeSingleBtn) {
+                removeSingleBtn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    resetSingleImage();
+                });
+            }
+
+            function resetSingleImage() {
+                singleImageInput.value = '';
+                singleImagePreview.src = '';
+                singlePreviewContainer.classList.add('hidden');
+                singlePreviewContainer.classList.remove('flex');
+                singleUploadLabel.classList.remove('hidden');
+            }
+
+            // ==========================================
+            // 3. MULTIPLE IMAGE UPLOAD (Gallery Images)
+            // ==========================================
+            const galleryInput = document.getElementById('product-images');
+            const galleryPreviewContainer = document.getElementById('gallery-preview-container');
+            
+            let selectedGalleryFiles = []; // Array to store multiple files
+
+            if (galleryInput && galleryPreviewContainer) {
+                galleryInput.addEventListener('change', function(event) {
                     const files = Array.from(event.target.files);
                     
-                    // Add newly selected valid images to our tracking array
                     files.forEach(file => {
                         if (file.type.startsWith('image/')) {
-                            // Prevent duplicates based on name and size
-                            const isDuplicate = selectedFiles.some(f => f.name === file.name && f.size === file.size);
+                            // Prevent duplicates
+                            const isDuplicate = selectedGalleryFiles.some(f => f.name === file.name && f.size === file.size);
                             if (!isDuplicate) {
-                                selectedFiles.push(file);
+                                selectedGalleryFiles.push(file);
                             }
                         }
                     });
 
-                    updateFileInputAndPreviews();
+                    updateGalleryInputAndPreviews();
                 });
             }
 
-            function updateFileInputAndPreviews() {
-                // 1. Sync the HTML input with our tracking array
-                // We use DataTransfer to programmatically set the files of the input
+            function updateGalleryInputAndPreviews() {
+                // Sync HTML input with tracking array
                 const dataTransfer = new DataTransfer();
-                selectedFiles.forEach(file => dataTransfer.items.add(file));
-                imageInput.files = dataTransfer.files;
+                selectedGalleryFiles.forEach(file => dataTransfer.items.add(file));
+                galleryInput.files = dataTransfer.files;
 
-                // 2. Clear the current previews
-                previewContainer.innerHTML = '';
+                // Clear current previews
+                galleryPreviewContainer.innerHTML = '';
 
-                // 3. Re-render the previews
-                selectedFiles.forEach((file, index) => {
+                // Re-render previews
+                selectedGalleryFiles.forEach((file, index) => {
                     const objectUrl = URL.createObjectURL(file);
                     
-                    // Create wrapper div
                     const div = document.createElement('div');
                     div.className = 'relative h-24 bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden group shadow-sm';
                     
-                    // Create Image element
                     const img = document.createElement('img');
                     img.src = objectUrl;
                     img.className = 'w-full h-full object-cover';
                     
-                    // Create Remove Button
                     const removeBtn = document.createElement('button');
                     removeBtn.type = 'button';
-                    // The button appears when hovering over the image
                     removeBtn.className = 'absolute top-1 right-1 bg-red-500 text-white rounded-md w-6 h-6 flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none shadow-md';
                     removeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
                     
-                    // Remove logic
                     removeBtn.addEventListener('click', function(e) {
                         e.preventDefault();
-                        // Remove the file from our tracking array based on index
-                        selectedFiles.splice(index, 1);
-                        // Re-run the update to refresh the view and the actual file input
-                        updateFileInputAndPreviews();
-                        
-                        // Clean up memory
+                        selectedGalleryFiles.splice(index, 1);
+                        updateGalleryInputAndPreviews();
                         URL.revokeObjectURL(objectUrl);
                     });
 
                     div.appendChild(img);
                     div.appendChild(removeBtn);
-                    previewContainer.appendChild(div);
+                    galleryPreviewContainer.appendChild(div);
                 });
             }
         });
