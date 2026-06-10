@@ -109,7 +109,19 @@
                                         </div>
                                     </td>
                                 </tr>
-                                </tbody>
+                                <tr>
+                                    <td colspan="7" class="px-6 py-12 text-center">
+                                        <div class="flex flex-col items-center justify-center text-gray-500">
+                                            <i class="fa-solid fa-ticket text-4xl mb-3 text-gray-300"></i>
+                                            <h3 class="text-lg font-medium text-gray-900">No coupons available</h3>
+                                            <p class="text-sm mt-1">You haven't created any discount codes yet.</p>
+                                            <a href="#" class="mt-4 text-primary hover:underline text-sm font-medium">
+                                                Create your first coupon
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
 
